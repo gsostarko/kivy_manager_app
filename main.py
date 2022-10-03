@@ -55,8 +55,7 @@ class LoginWindow(Screen):
 
 		return word
 
-	def close_login_alert(self, obj):
-		self.login_alert.dismiss()
+	
 
 class HomeWindow(Screen):
 	
@@ -75,7 +74,7 @@ class HomeWindow(Screen):
 		conn.commit()
 		conn.close()
 		print(word)
-		self.ids.home_text.text = word
+		#self.ids.home_text.text = word
 		print (self.ids.home_text.text)
 
 class Main(MDApp):
@@ -89,6 +88,21 @@ class Main(MDApp):
 		#--------- LOADING DATABASES ---------
 		
 		return WindowManager()
+
+	def notification1(self, pressed, list_id):
+		if not self.login_alert:
+			self.login_alert = MDDialog(
+				title = "Obavjijest o ažuriranju",
+				text = "Goran Šostarko @ 03.10.2022. 13:56 : \n\nObavještavamo vas kako je aplikacija ažurirana te su dodane sljedeće funkcionalnosti: \nsnimanje stvari, \nupload datoteka",
+				buttons = [
+					MDFlatButton(
+						text= "OK", text_color=self.theme_cls.primary_color, on_release = self.close_login_alert),				
+					],
+				)
+		self.login_alert.open()
+
+	def close_login_alert(self, obj):
+		self.login_alert.dismiss()
 
 # --------------- LOGIN ---------------
 # Funkcija za logiranje koja prihvaća korisničko ime i lozinku (PIN).

@@ -73,7 +73,33 @@
 		padding_y: 15
 		pos_hint: {"center_x": 0.5, "center_y": 0.5}
 		color: 0,0,0,1
-	
-	
+	MDCard:
+		size_hint: None, None
+		size: 300, 380
+		pos_hint: {"center_x": 0.5, "center_y": 0.3}
+		elevation: 0
+		padding: 25
+		spacing: 25
+		orientation: 'vertical'
+		MDLabel:
+			text: "Obavijesti"
+		MDList:
+			ThreeLineListItem:
+				id: listitem1
+				text: "Goran Šostarko"
+				secondary_text: "03.10.2022. 13:46 "
+				tertiary_text: "Obavjest o ažuriranju"
+				on_release: app.notification1(self, "listitem1")
+			ThreeLineListItem:
+				id: listitem2
+				text: "@gsostarko"
+				secondary_text: "03.10.2022. 13:46"
+				tertiary_text: "Ovim putem vas obavještavam \nda je aplikacija ažurirana te su dodane sljedeće funkcije"
+			ThreeLineListItem:
+				id: listitem3
+				text: "@gsostarko"
+				secondary_text: "03.10.2022. 13:46"
+				tertiary_text: "Ovim putem vas obavještavam da je aplikacija ažurirana te su dodane sljedeće funkcije"
 			
+				
 			
